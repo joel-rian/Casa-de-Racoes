@@ -110,7 +110,7 @@ nav {
 .hero-content {
     display: flex;
     position: fixed;
-    bottom: 50px;
+    top: 200px;
     flex-direction: column;
     left: 30px;
     
@@ -240,7 +240,7 @@ footer {
   margin-top: 32px;
   padding: 18px;
   border-radius: 12px;
-  background: linear-gradient(180deg, #FFFFFF, #0000ff);
+  background: linear-gradient(180deg, #000000, #0000ff);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -253,7 +253,7 @@ footer {
 .footer-right {
   text-align: right;
   font-size: 13px;
-  color: white;
+  color: rgb(145, 145, 145);
 }
 
 .footer-support {
@@ -376,8 +376,24 @@ video {
     right: 10px;
     z-index: 4;
 }
+ 
+
+
+
+/* CORREÇÃO ESPECÍFICA PARA MOBILE (iOS/Safari) */
+/* Adicione este bloco no final do seu CSS */
+@media (max-width: 900px) {
+    /* ... suas outras configurações de mobile ... */
+    
+    /* Opcional, mas recomendado para melhorar a rolagem no iOS */
+    body {
+        -webkit-overflow-scrolling: touch; 
+    }
+}
+
+
 @media (min-width: 900px) {
-  .imgport {
+  .pets {
     display: none;
   }
 
@@ -386,11 +402,16 @@ video {
 /* RESPONSIVIDADE - até 900px */
 @media (max-width: 900px) {
 
-  /* Se quiser esconder todos os <p> como no código 1, libera essa linha:
-  p {
-    display: none;
-  }
-  */
+  .pets {
+    width: 100%;
+    height: 100%;
+    position: fixed; /* <--- O PROBLEMA ESTÁ AQUI */
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-attachment: fixed; 
+    
+}
 
   /* container geral ocupa tela quase toda e com menos margem */
   .container {
